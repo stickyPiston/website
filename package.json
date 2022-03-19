@@ -1,0 +1,19 @@
+{
+  "name": "jobbel.nl",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "mkdir -p dist/js; mkdir -p dist/css; concurrently -n pug,client-js,server-js,server,sass \"pug -w views -o dist\" \"coffee -c -w -o dist/js src\" \"coffee -c -w -o dist server.coffee\" \"nodemon dist/server.js\" \"sass -w styles:dist/css\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "coffeescript": "^2.6.1",
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.49.9"
+  }
+}
