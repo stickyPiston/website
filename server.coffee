@@ -4,12 +4,12 @@ path = require "path"
 
 # Configuration
 
-static_dirs = ["css", "images", "js"]
+static_dirs = ["views", "css", "images", "js"]
 
 routes =
-  "/": "index.html",
-  "/about": "about.html",
-  "/projects": "projects.html"
+  "/": "main.html",
+  "/about": "main.html",
+  "/projects": "main.html"
 
 # Server logic
 
