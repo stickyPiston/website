@@ -1,4 +1,13 @@
-main
+extends layout.pug
+
+block head
+  title "Projects - Jobbel.nl"
+  link(rel = "stylesheet" href = "/css/projects.css")
+
+block scripts
+  script(src = "/js/projects.js")
+
+block content
   h1 Projects
   p These are some of the things that I made. There are so many projects that you can scroll down to reveal more projects.
   .list
