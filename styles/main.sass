@@ -1,1 +1,31 @@
-// To be done
+@import "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap"
+
+html, body
+  margin: 0
+  padding: 0
+  height: 100vh
+  font-family: Roboto Mono
+  font-size: 15px
+  line-height: 2rem
+
+body
+  display: grid
+  grid-template-rows: auto 4rem
+
+  h1
+    text-align: left
+    font-weight: 400
+    position: relative
+
+    &:before
+      content: "#"
+      color: #d3d3d3
+      font-size: 15px
+      text-decoration: none
+      display: inline-block
+      padding-right: 1ch
+  
+  > nav
+    padding-left: 3rem
+    *
+      padding-left: 1rem
