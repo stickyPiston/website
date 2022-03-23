@@ -8,22 +8,27 @@ html, body
   font-size: 15px
   line-height: 2rem
 
+%markdown
+  color: #d3d3d3
+  font-size: 15px
+  text-decoration: none
+  display: inline-block
+  padding-right: 1ch
+
 body
   display: grid
   grid-template-rows: auto 4rem
 
-  h1
-    text-align: left
+  h1, h2, h3, h4, h5, h6
     font-weight: 400
-    position: relative
 
-    &:before
-      content: "#"
-      color: #d3d3d3
-      font-size: 15px
-      text-decoration: none
-      display: inline-block
-      padding-right: 1ch
+  h1:before
+    @extend %markdown
+    content: "#"
+
+  h2:before
+    @extend %markdown
+    content: "##"
   
   > nav
     padding-left: 3rem
