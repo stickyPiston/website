@@ -61,7 +61,7 @@ projects_en = [
     name: "View on Gitea"
 ,
   name: "Flipbot"
-  desc: "A discord bot that helps you express frustration in the form of the amazing emote (╯°□°）╯︵ ┻━┻."
+  desc: "A discord bot that helps you express frustration in the form of the amazing emote (&#9583;&deg;&#9633;&deg;&#65289;&#9583;&#65077; &#9531;&#9473;&#9531;."
   image: "/images/flipbot.png"
   tags: ["Javascript"]
   action:
@@ -116,7 +116,7 @@ projects_en = [
   tags: ["Angular", "Node.js"]
 ]
 
-for project in projects_en
+projects_en.forEach (project, i) ->
   # Build up the card's HTML
   card = document.createElement "div"
   card.innerHTML = "
@@ -130,11 +130,14 @@ for project in projects_en
     }
     <p>#{project.desc}</p>
     #{if project.action?
-       "<a href=\"#{project.action.link}\">#{project.action.name or "Learn more"}</a>"
+       "<a href=\"#{project.action.link}\">#{project.action.name or "Learn more"} <span>&#10132;</span></a>"
       else ""
     }
   "
 
-  # Render the card
+  card.style.opacity = 0
   document.querySelector ".list"
-    .appendChild card 
+    .appendChild card
+
+  # Render the card
+  setTimeout (-> card.style.opacity = 100), i * 100

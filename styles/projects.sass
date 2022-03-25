@@ -8,7 +8,7 @@ main
     row-gap: 2rem
     column-gap: 2rem
 
-    @media (max-width: 800px)
+    @media (max-width: 900px)
       grid-template-columns: repeat(3, calc(33.3% - 4rem / 3))
 
     @media (max-width: 600px)
@@ -18,6 +18,8 @@ main
       grid-template-columns: 100%
 
     div
+      transition: .1s
+
       img
         width: 100%
         height: 6rem
@@ -40,3 +42,20 @@ main
         padding: .5rem 1rem
         border-radius: .75rem
         color: white
+        text-decoration: none
+
+        &:hover
+          background: lighten(#00f, 20%)
+          transition: .25s
+
+          span
+            animation-name: bounce-right
+            animation-direction: alternate
+            animation-iteration-count: infinite
+            animation-duration: .5s
+
+@keyframes bounce-right
+  0%
+    margin-left: 0
+  100%
+    margin-left: .5rem
