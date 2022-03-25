@@ -13,9 +13,16 @@ routes =
 
 # Server logic
 
+content_types =
+  "js": "text/javascript"
+  "html": "text/html"
+  "css": "text/css"
+  "png": "image/png"
+
 server = http.createServer (req, res) ->
   if routes[req.url]
-    res.writeHead 200
+    extension = (routes[req.url].split ".").pop()
+    res.writeHead 200, "Content-Type": content_types[extension] or "text/plain"
     res.end fs.readFileSync \
       path.join __dirname, routes[req.url]
   else

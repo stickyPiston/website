@@ -1,5 +1,6 @@
 request_and_load = (url) ->
   req = new XMLHttpRequest
+  req.overrideMimeType "text/xml"
   req.onreadystatechange = ->
     if req.readyState is XMLHttpRequest.DONE and
        req.status is 200
