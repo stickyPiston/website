@@ -1,27 +1,34 @@
-request_and_load = (url) ->
+request_and_load = (url, transition = true) ->
   req = new XMLHttpRequest
   req.overrideMimeType "text/xml"
+  load = ->
+    (document.querySelector "main").innerHTML =
+      (req.responseXML.getElementById "content").innerHTML
+    (document.querySelector "head").innerHTML =
+      (req.responseXML.getElementById "head").innerHTML
+    Array.from (req.responseXML.getElementById "scripts").children
+      .forEach (s) ->
+        script = document.createElement "script"
+        script.src = s.getAttribute "src"
+        document.querySelector "body"
+          .appendChild script
   req.onreadystatechange = ->
     if req.readyState is XMLHttpRequest.DONE and
        req.status is 200
-      document.getElementById "transition"
-        .style.transformOrigin = "100% 100% 0"
-      setTimeout (->
-        (document.querySelector "main").innerHTML =
-          (req.responseXML.getElementById "content").innerHTML
-        (document.querySelector "head").innerHTML =
-          (req.responseXML.getElementById "head").innerHTML
-        Array.from (req.responseXML.getElementById "scripts").children
-          .forEach (s) ->
-            script = document.createElement "script"
-            script.src = s.getAttribute "src"
-            document.querySelector "body"
-              .appendChild script
+      if transition
         document.getElementById "transition"
-          .style.transform = "scale(0, 1)"
-        document.getElementById "transition-text"
-          .style.display = "none"
-        document.body.style.overflow = "auto"), 750
+          .style.transformOrigin = "100% 100% 0"
+        setTimeout (->
+          load()
+          document.getElementById "transition"
+            .style.transform = "scale(0, 1)"
+          document.getElementById "transition"
+            .style.zIndex = 20
+          document.getElementById "transition-text"
+            .style.display = "none"
+          document.body.style.overflow = "auto"), 750
+      else
+        load()
   req.open "GET", url
   req.send()
 
@@ -51,6 +58,7 @@ animate_transition = ->
   window.scrollTo 0, 0
   document.body.style.overflow = "hidden"
   transition_div = document.getElementById "transition"
+  transition_div.style.zIndex = 20
   transition_div.style.transformOrigin = "0 100% 0"
   transition_div.style.transform = "scale(1, 1)"
   transition_div.style.background = 
@@ -60,14 +68,17 @@ animate_transition = ->
   transition_text.innerText =
     route_meta[window.location.pathname].title
 
-render = ->
-  animate_transition()
-  setTimeout (->
-    reset_page()
+render = (transition = true) ->
+  follow_route = ->
     switch window.location.pathname
-      when "/" then request_and_load "/views/index.html"
-      when "/about" then request_and_load "/views/about.html"
-      when "/projects" then request_and_load "/views/projects.html"), 500
+      when "/" then request_and_load "/views/index.html", transition
+      when "/about" then request_and_load "/views/about.html", transition
+      when "/projects" then request_and_load "/views/projects.html", transition
+  if transition
+    animate_transition()
+    setTimeout (-> reset_page(); follow_route()), 500
+  else
+    follow_route()
 
 Array.from document.querySelectorAll "a[href]"
   .forEach (el) ->
@@ -76,4 +87,4 @@ Array.from document.querySelectorAll "a[href]"
       window.history.pushState {}, "", e.target.href
       render()
 
-render()
+render false

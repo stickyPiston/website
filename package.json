@@ -1,19 +1,29 @@
 {
   "name": "jobbel.nl",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
     "start": "mkdir -p dist/js; mkdir dist/css; mkdir dist/views; concurrently -n views,pug-main,client-js,server-js,server,sass \"pug -w views/{index,about,projects}.pug -o dist/views\" \"pug -w views/main.pug -o dist\" \"coffee -c -w -o dist/js src\" \"coffee -c -w -o dist server.coffee\" \"nodemon dist/server.js\" \"sass --no-source-map -w styles:dist/css\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "main": "index.js",
+  "devDependencies": {
     "coffeescript": "^2.6.1",
     "concurrently": "^7.0.0",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.49.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stickyPiston/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stickyPiston/website/issues"
+  },
+  "homepage": "https://github.com/stickyPiston/website#readme",
+  "description": ""
 }
