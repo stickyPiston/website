@@ -88,3 +88,5 @@ Array.from document.querySelectorAll "a[href]"
       render()
 
 render false
+
+window.onpopstate = render
