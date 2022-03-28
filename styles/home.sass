@@ -18,8 +18,8 @@ main
     top: 0
 
   img:not(.backdrop)
-    height: 3rem
-    width: 4rem
+    height: calc(.08 * 100vh)
+    width: calc(.11 * 100vh)
     position: absolute
     animation-name: sail
     animation-duration: 60s
@@ -28,20 +28,20 @@ main
 
 @keyframes sail
   0%
-    right: -4rem
-    top: 50%
+    right: calc(-.11 * 100vh)
+    top: 50vh
   25%
-    right: 118px
-    top: 45%
+    right: 20vh //118px
+    top: 45vh
   50%
-    right: 285px
-    top: 32%
+    right: 48vh //285px
+    top: 32vh
   60%
-    right: 285px
-    top: 20%
+    right: 48vh //285px
+    top: 20vh
   85%
-    right: 240px
-    top: -4rem
+    right: 41vh //240px
+    top: calc(-.08 * 100vh)
   100%
-    right: 240px
-    top: -4rem
+    right: 41vh //240px
+    top: calc(-.08 * 100vh)

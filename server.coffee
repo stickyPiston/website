@@ -23,8 +23,7 @@ server = http.createServer (req, res) ->
   if routes[req.url]
     extension = (routes[req.url].split ".").pop()
     res.writeHead 200, "Content-Type": content_types[extension] or "text/plain"
-    res.end fs.readFileSync \
-      path.join __dirname, routes[req.url]
+    fs.readFile (path.join __dirname, routes[req.url]), (err, data) -> res.end data
   else
     res.writeHead 404
     res.end "We couldn't find the page you're looking for"
@@ -36,4 +35,4 @@ for dir in static_dirs
     static_file = path.join dir, file
     routes["/" + static_file] = static_file
 
-server.listen 3000
+server.listen 80

@@ -2,7 +2,8 @@
   "name": "jobbel.nl",
   "version": "1.0.0",
   "scripts": {
-    "start": "mkdir -p dist/js; mkdir dist/css; mkdir dist/views; concurrently -n views,pug-main,client-js,server-js,server,sass \"pug -w views/{index,about,projects}.pug -o dist/views\" \"pug -w views/main.pug -o dist\" \"coffee -c -w -o dist/js src\" \"coffee -c -w -o dist server.coffee\" \"nodemon dist/server.js\" \"sass --no-source-map -w styles:dist/css\""
+    "start": "mkdir -p dist/js dist/css dist/views; concurrently -n views,pug-main,client-js,server-js,server,sass \"pug -w views/{index,about,projects}.pug -o dist/views\" \"pug -w views/main.pug -o dist\" \"coffee -c -w -o dist/js src\" \"coffee -c -w -o dist server.coffee\" \"nodemon dist/server.js\" \"sass --no-source-map -w styles:dist/css\"",
+    "compile": "mkdir -p dist/js dist/css dist/views; pug views --out dist/views; coffee -c -o dist/js src; coffee -c -o dist server.coffee; sass --no-source-map styles:dist/css; pug views/main.pug -o dist"
   },
   "keywords": [],
   "author": "",
