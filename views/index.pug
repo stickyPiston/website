@@ -1,7 +1,6 @@
 extends layout.pug
 
 block head
-  title Home - Jobbel.nl
   link(rel = "stylesheet" href = "/css/home.css")
 
 block scripts
@@ -9,8 +8,10 @@ block scripts
 
 block content
   section
-    h1 Welcome to Jobbel.nl!
-    p Good afternoon! My name is Job and I proudly present my portfolio. I am a curious programmer and aspiring computer scientist. My website shows my progress as a programmer, so if you are curious, check it out by making use of the buttons located down below this paragraph. (by the time you read this, a boat should start sailing from the right-hand side of the screen) 
+    h1(lang = "en") Welcome to Jobbel.nl!
+    p(lang = "en") Hello! My name is Job and I proudly present my portfolio. I am a curious programmer and aspiring computer scientist. My website shows my progress as a programmer, so if you are curious, check it out by making use of the buttons located down below this paragraph. (by the time you read this, a boat should start sailing from the right-hand side of the screen) 
+    h1(lang = "nl") Welkom op Jobbel.nl
+    p(lang = "nl") Hallo! Mijn naam is Job en welkom op mijn portfolio-website. Ik ben een nieuwsgierige programmeur en een aspirant-computer scientist. Op mijn webiste kan je de vooruitgang zien die ik als programmeur boek. Maak gebruik van de knoppen onder deze paragraaf om door de website te navigeren. (tegen de tijd dat je dit leest, zou er een boot moeten gaan varen aan de rechterkant van het scherm)
   div
     img.backdrop(src = "/images/city.png")
     img(src = "/images/boat.png")

@@ -1,3 +1,9 @@
+window.update_title = ->
+  document.querySelector "title"
+    .innerText =
+      route_meta[window.location.pathname].title[locale] +
+        " - Jobbel.nl"
+
 request_and_load = (url, transition = true) ->
   req = new XMLHttpRequest
   req.overrideMimeType "text/xml"
@@ -12,6 +18,7 @@ request_and_load = (url, transition = true) ->
         script.src = s.getAttribute "src"
         document.querySelector "body"
           .appendChild script
+    translate(); update_title()
   req.onreadystatechange = ->
     if req.readyState is XMLHttpRequest.DONE and
        req.status is 200
@@ -45,13 +52,19 @@ reset_page = ->
 
 route_meta =
   "/":
-    title: "Home"
+    title:
+      en: "Home"
+      nl: "Home"
     colour: "#f00"
   "/about":
-    title: "About"
+    title:
+      en: "About"
+      nl: "Over mij"
     colour: "#0f0"
   "/projects":
-    title: "Projects"
+    title:
+      en: "Projects"
+      nl: "Projecten"
     colour: "#00f"
 
 animate_transition = ->
@@ -66,7 +79,7 @@ animate_transition = ->
   transition_text = document.getElementById "transition-text"
   transition_text.style.display = "inline-block"
   transition_text.innerText =
-    route_meta[window.location.pathname].title
+    route_meta[window.location.pathname].title[locale]
 
 render = (transition = true) ->
   follow_route = ->

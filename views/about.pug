@@ -1,7 +1,6 @@
 extends layout.pug
 
 block head
-  title About Me - Jobbel.nl
   link(rel = "stylesheet" href = "/css/about.css")
 
 block scripts
@@ -15,20 +14,30 @@ block content
   .content
     article
       section
-        h1 Hello, I am Job
-        p
-          | I am a Dutch university student who loves everything that has to do with computers, from electronics and hardware to compilers and web development and anything in between. My favorite programming languages are Javascript and C. I code stuff mostly for self-entertainment, but once in a while my friend 
+        h1(lang = "en") Hello, I am Job
+        p(lang = "en")
+          | I am a Dutch university student who loves everything that has to do with computers, from electronics and hardware to compilers and web development and anything in between. I code stuff mostly for self-entertainment, but once in a while my friend 
           a(href = "//arnweb.nl") Arne
           |  and I get to build a website for a real customer. At the right-hand side of this page you can see a picture of me.
+        h1(lang = "nl") Hallo, ik ben Job
+        p(lang = "nl")
+          | Ik ben een eerstejaars universiteitisstudent die houdt van alles wat met computers te maken heeft: van electronica met chips tot compilers en websites maken. Voor het grootste gedeelte programmeer ik als hobby, maar soms werken mijn vriend 
+          a(href = "//arnweb.nl") Arne
+          |  en ik samen aan een groter en serieuzer project voor soms wel eens een echte klant. Rechts zie je een foto van mij.
       img(src = "/images/me.png")
     article
       section
-        h1 Quality not guaranteed
-        p I started programming due to my uncle. He had a spare Joomla website and I was allowed to use it. From there, I started finding out about HTML, and later about CSS and it continued like that. School didn't provide any programming lessons whatsoever, so I learnt everything from online resources and my friends. Because I worked with HTML and CSS already, Javascript was inevitable to learn. Javascript was the first "real" programming language I learnt, and using the knowledge I gained from learning Javascript, I started experimenting with other langauges among which C, Assembly and Haskell.
+        h1(lang = "en") Quality not guaranteed
+        p(lang = "en") I started with programming when I entered high school. I already had some experience with HTML and over the years I learned CSS and Javascript. With this basic knowledge of programming, I wanted to discover different fields within computer science, like electronics, theortical computer science and other disciplines. Currently, I like working in programming language theory with languages like Haskell and C++.
+        h1(lang = "nl") Kwaliteit niet gegarandeerd
+        p(lang = "nl") Ik ben begonnen met programmeren net toen ik op de middelbare school kwam. Ik had al wat ervaring opgedaan met HTML en over de jaren heen heb ik CSS en Javascript geleerd. Met de basiskennis op zak ben ik begonnen met het ontdekken van de verschillende disciplines binnen de informatica: electronica, theoretische informatica, graphics en meer. Ik ben nu vooral bezig met programmeertalentheorie en met talen zoals Haskell en C++.
       img(src = "/images/macbook.png")
     article
       section
-        h1 Curiosity
-        p I am currently doing my computer science bachelor, and I'd love to do a master after that. I am uncertain what I want to do later as a profession, but I'll have enough time to figure that out.
-        p There are also some projects I still want to do, like building my own 16-bit cpu and completing a fully functional language compiler.
+        h1(lang = "en") Curiosity
+        p(lang = "en") I am currently doing my computer science bachelor, and I'd love to do a master after that. I am uncertain what I want to do later as a profession, but I'll have enough time to figure that out.
+        p(lang = "en") There are also some projects I still want to do, like building my own 16-bit cpu and completing a fully functional language compiler.
+        h1(lang = "nl") Nieuwsgierigheid
+        p(lang = "nl") Ik ben op het moment bezig met mijn bachelor Informatica op de universiteit en ik wil daarna een master doen in hetzelfde vakgebied. Wat er daarna gebeurt weet ik nog niet, maar ik heb nog een jaar of 5 voordat ik dat hoef te beslissen.
+        p(lang = "nl") In de tussentijd wil ik nog een aantal grote projecten doen, zoals het maken van een eigen 16-bit cpu en een volledig werkende programmeertaal.
       img(src = "/images/wires.png")
