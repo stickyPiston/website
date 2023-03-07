@@ -1,0 +1,6 @@
+dist/*
+!dist/images
+.vscode
+.git
+.gitignore
+.node_modules
