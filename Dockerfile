@@ -2,7 +2,7 @@ FROM node:lts-alpine
 
 # Setup environment
 WORKDIR /usr/src/app
-EXPOSE 80
+EXPOSE 3001
 
 # Copy sources
 COPY . .
